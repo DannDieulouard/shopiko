@@ -1,15 +1,19 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { AuthProvider } from './components/auth-provider'
-import { Header } from './components/header'
-import { Footer } from './components/footer'
+import { Poppins } from 'next/font/google'
+import { AuthProvider } from '../components/auth-provider'
+import { Header } from '../components/header'
+import { Footer } from '../components/footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({ 
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-poppins',
+})
 
 export const metadata: Metadata = {
-  title: 'Shopiko - Your One-Stop Shop',
-  description: 'Discover amazing deals on a wide range of products at Shopiko',
+  title: 'Shopiko - Your Modern E-commerce Destination',
+  description: 'Discover trendy products and amazing deals at Shopiko',
 }
 
 export default function RootLayout({
@@ -19,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-screen bg-gray-50`}>
+      <body className={`${poppins.variable} font-sans flex flex-col min-h-screen bg-gray-50`}>
         <AuthProvider>
           <Header />
           <main className="flex-grow">{children}</main>
